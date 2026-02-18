@@ -14,11 +14,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
+      <main style={{ minHeight: "100vh", padding: "100px" }}>
         <div>
           <h1>Praktikum Next.js Pages Router</h1>
           <p>Mahasiswa D4 Pengembangan Web</p>
-          <a href="/">Kembali ke About</a>
+          <a href="/about" style={{ color: "red" }}>
+            About Me
+          </a>
         </div>
       </main>
     </>
