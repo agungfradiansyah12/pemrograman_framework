@@ -1,11 +1,11 @@
-const UserSettingPage = () => {
+const PasswordSettingPage = () => {
   return (
     <main style={{ minHeight: "100vh" }}>
       <div style={{ padding: "20px" }}>
-        <h1>User Setting Pagee</h1>
+        <h1>Paswword User Pagee</h1>
       </div>
     </main>
   );
 };
 
-export default UserSettingPage;
+export default PasswordSettingPage;
