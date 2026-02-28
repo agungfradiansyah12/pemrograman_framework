@@ -1,7 +1,9 @@
+import syles from "./navbar.module.css";
+
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <h1>Navbar</h1>
+    <div className={syles.navbar}>
+      <h1>Navbar componen</h1>
     </div>
   );
 };
