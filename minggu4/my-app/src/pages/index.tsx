@@ -15,10 +15,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main style={{ minHeight: "100vh", padding: "20px" }}>
+      <main style={{ padding: "20px" }}>
         <div>
           {/* <Navbar /> */}
-          <h1>Praktikum minggu 2</h1>
+          <h1>Praktikum Next.js Pages Router</h1>
           <p>Mahasiswa D4 Pengembangan Web</p>
         </div>
       </main>
