@@ -12,7 +12,7 @@ export default function Custom404() {
       <div className={styles.container}>
         <img src="/page-not-found.png" alt="404" className={styles.image} />
 
-        <h1>404 - Halaman Tidak Ditemukan</h1>
+        <h1 className={styles.title}>404 - Halaman Tidak Ditemukan</h1>
         <p>Maaf, halaman yang Anda cari tidak tersedia.</p>
       </div>
     </>
