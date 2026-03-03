@@ -13,8 +13,6 @@ const halamanLogin = () => {
   return (
     <div className={styles.login}>
       <h1>Halaman Login</h1>
-      {/* <button onClick={handlerLogin}>Login</button> <br /> */}
-      {/* <button onClick={() => push("/produk")}>Login</button> <br /> */}
       <button onClick={() => handlerLogin()}>Login</button> <br />
       <Link href="/auth/register">Ke Halaman Register</Link>
     </div>
