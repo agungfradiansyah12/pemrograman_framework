@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import ProdukView from "../views/produk";
 
-const produk = () => {
+const Produk = () => {
   const [isLogin, setIsLogin] = useState(true);
   const { push } = useRouter();
 
@@ -11,7 +12,7 @@ const produk = () => {
     }
   }, []);
 
-  return <div>Produk User Page</div>;
+  return <ProdukView />;
 };
 
-export default produk;
+export default Produk;
