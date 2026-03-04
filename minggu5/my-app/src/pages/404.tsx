@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "@/styles/404.module.scss";
 
 export default function Custom404() {
@@ -14,6 +15,10 @@ export default function Custom404() {
 
         <h1 className={styles.title}>404 - Halaman Tidak Ditemukan</h1>
         <p>Maaf, halaman yang Anda cari tidak tersedia.</p>
+
+        <Link href="/" className={styles.button}>
+          Kembali ke Home
+        </Link>
       </div>
     </>
   );
