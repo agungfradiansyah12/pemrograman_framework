@@ -15,7 +15,7 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
       <h1 className={styles.produk_title}>Daftar Produk</h1>
 
       <div className={styles.produk_content}>
-        {products.map((products: ProductType) => (
+        {/* {products.map((products: ProductType) => (
           <div key={products.id} className={styles.produk_content_item}>
             <div className={styles.produk_content_item_image}>
               <img src={products.image} alt={products.name} width={200} />
@@ -27,7 +27,14 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
 
             <p className={styles.produk_content_item_price}>Rp {products.price.toLocaleString()}</p>
           </div>
-        ))}
+        ))} */}
+
+        <div className={styles.produk_content_skeleton}>
+          <div className={styles.produk_content_skeleton_image}></div>
+          <div className={styles.produk_content_skeleton_name}></div>
+          <div className={styles.produk_content_skeleton_category}></div>
+          <div className={styles.produk_content_skeleton_price}></div>
+        </div>
       </div>
     </div>
   );
