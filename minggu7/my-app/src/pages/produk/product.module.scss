@@ -14,6 +14,51 @@
     flex-wrap: wrap;
     gap: 20px;
 
+    /* Skeleton Card */
+    &_skeleton {
+      width: calc(25% - 20px);
+      padding: 16px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: skeleton-loading 1.5s infinite ease-in-out;
+
+      &_image {
+        width: 100%;
+        height: 200px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      &_name {
+        width: 80%;
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      &_category {
+        width: 60%;
+        height: 16px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      &_price {
+        width: 40%;
+        height: 18px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+      }
+    }
+
+    /* Card Produk */
     &_item {
       width: calc(25% - 20px);
       background: #fff;
@@ -27,10 +72,6 @@
         object-fit: cover;
         border-radius: 4px;
         margin-bottom: 12px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -ms-border-radius: 4px;
-        -o-border-radius: 4px;
       }
 
       &_name {
@@ -39,17 +80,30 @@
         margin-bottom: 8px;
       }
 
-      &_price {
-        font-size: 16px;
-        color: #ff5722;
-        font-weight: bold;
-      }
-
       &_category {
         font-size: 14px;
         color: #888;
         margin-bottom: 8px;
       }
+
+      &_price {
+        font-size: 16px;
+        color: #ff5722;
+        font-weight: bold;
+      }
     }
+  }
+}
+
+/* Animasi Skeleton */
+@keyframes skeleton-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
