@@ -1,28 +1,29 @@
+import fetcher from "@/utils/swr/fetcher";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import DetailProduk from "../../views/DetailProduct";
 
 const HalamanProduk = () => {
-  // const router = useRouter();
-  // console.log(router);
-  const { query } = useRouter();
-  console.log(query);
+  const { query, isReady } = useRouter();
+
+  const { data, error, isLoading } = useSWR(query.id ? `/api/produk/${query.id}` : null, fetcher);
+
+  console.log("ID:", query.id);
+  console.log("DATA:", data);
+
+  if (!isReady || isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error...</div>;
+  }
+
   return (
-    <div style={{ minHeight: "100vh", padding: "20px" }}>
-      <h1>Halaman Produk</h1>
-      <p>Produk: {query.id}</p>
+    <div>
+      <DetailProduk products={data?.data} />
     </div>
   );
 };
 
-// const HalamanProduk = () => {
-//   const router = useRouter();
-//   console.log(router);
-//   // const { query } = useRouter();
-//   // console.log(query);
-//   return (
-//     <div style={{ minHeight: "100vh", padding: "20px" }}>
-//       <h1>Halaman Produk</h1>
-//       <p>Produk</p>
-//     </div>
-//   );
-// };
 export default HalamanProduk;
