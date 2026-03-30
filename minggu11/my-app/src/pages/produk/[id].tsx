@@ -2,28 +2,46 @@ import fetcher from "@/utils/swr/fetcher";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import DetailProduk from "../../views/DetailProduct";
+import { ProductType } from "@/types/Product.type";
 
-const HalamanProduk = () => {
-  const { query, isReady } = useRouter();
-
-  const { data, error, isLoading } = useSWR(query.id ? `/api/produk/${query.id}` : null, fetcher);
-
-  console.log("ID:", query.id);
-  console.log("DATA:", data);
-
-  if (!isReady || isLoading) {
-    return <div>Loading...</div>;
+const HalamanProduk = ({ product }: { product: ProductType }) => {
+  {
+    /digunakan client-side rendering/;
   }
-
-  if (error) {
-    return <div>Error...</div>;
-  }
+  // // const Router = useRouter();
+  // // console.log(Router);
+  // const { query } = useRouter();
+  // const { data, error, isLoading } = useSWR(
+  //   `/api/products/${query.produk}`,
+  //   fetcher,
+  // );
+  // return (
+  //   <div>
+  //     <DetailProduk products={isLoading ? [] : data.data} />
+  //   </div>
+  // );
 
   return (
     <div>
-      <DetailProduk products={data?.data} />
+      <DetailProduk products={product} />
     </div>
   );
 };
 
 export default HalamanProduk;
+
+{
+  /digunakan server-side rendering/;
+}
+
+export async function getServerSideProps({ params }: { params: { id: string } }) {
+  const res = await fetch(`http://localhost:3000/api/produk/${params?.id}`);
+  const respone = await res.json();
+  // console.log("Data produk yang diambil dari API:", respone);
+  return {
+    props: {
+      product: respone.data, // Pastikan untuk memberikan nilai default jika data tidak tersedia
+    },
+  };
+}
+// }
