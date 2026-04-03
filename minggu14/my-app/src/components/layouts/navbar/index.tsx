@@ -1,15 +1,30 @@
 import { data } from "autoprefixer";
-import syles from "./navbar.module.css";
+import styles from "./navbar.module.css";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
-  const { data } = useSession();
+  const { data: session } = useSession();
+
   return (
-    <div className={syles.navbar}>
-      <div className="big">Navbar</div>
-      {data ? <button onClick={() => signOut()}>Sign Out</button> : <button onClick={() => signIn()}>Sign In</button>}
+    <div className={styles.navbar}>
+      <div className={styles.navbar_brand}>MyApp</div>
+
+      <div className={styles.navbar_right}>
+        {session && <span className={styles.navbar_user}>{session.user?.name}</span>}
+
+        {session ? (
+          <>
+            <button className={`${styles.navbar_button} ${styles["navbar_button-danger"]}`} onClick={() => signOut()}>
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <button className={`${styles.navbar_button} ${styles["navbar_button-primary"]}`} onClick={() => signIn()}>
+            Sign In
+          </button>
+        )}
+      </div>
     </div>
   );
 };
-
 export default Navbar;
