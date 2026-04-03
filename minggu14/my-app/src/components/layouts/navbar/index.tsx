@@ -1,9 +1,13 @@
+import { data } from "autoprefixer";
 import syles from "./navbar.module.css";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const { data } = useSession();
   return (
     <div className={syles.navbar}>
-      <h1 className="big">Navbar componen</h1>
+      <div className="big">Navbar</div>
+      {data ? <button onClick={() => signOut()}>Sign Out</button> : <button onClick={() => signIn()}>Sign In</button>}
     </div>
   );
 };
