@@ -9,6 +9,8 @@ const TampilanRegister = () => {
   const [error, setError] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setError("");
+    setIsLoading(true);
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -17,6 +19,17 @@ const TampilanRegister = () => {
     const email = formData.get("email") as string;
     const fullname = formData.get("fullName") as string;
     const password = formData.get("password") as string;
+
+    //tugas
+    if (!email) {
+      setError("Email wajib diisi");
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setError("Password minimal 6 karakter");
+      return;
+    }
 
     const response = await fetch("/api/register", {
       method: "POST",
@@ -32,12 +45,13 @@ const TampilanRegister = () => {
       push("/auth/login");
     } else {
       setIsLoading(false);
-      setError(response.status === 400 ? "User already exists" : "An error occurred");
+      setError(response.status === 400 ? "Email already exists" : "An error occurred");
     }
   };
 
   return (
     <div className={styles.register}>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <h1 className={styles.register_title}>Halaman Register</h1>
 
       <form className={styles.register_form} onSubmit={handleSubmit}>
@@ -66,8 +80,8 @@ const TampilanRegister = () => {
         </div>
 
         {/* Button */}
-        <button type="submit" className={styles.register_form_button}>
-          Register
+        <button type="submit" className={styles.register_form_button} disabled={isLoading}>
+          {isLoading ? "Loading..." : "Register"}
         </button>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
