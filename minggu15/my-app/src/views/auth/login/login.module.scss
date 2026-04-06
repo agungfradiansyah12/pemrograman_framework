@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "@/styles/colors.scss" as *;
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: map.get($schema, color-secondary);
+}
