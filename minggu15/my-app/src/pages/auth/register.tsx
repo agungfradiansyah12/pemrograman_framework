@@ -1,18 +1,7 @@
-import styles from "./register.module.css";
+import TampilanRegister from "../../views/auth/register";
 
-export default function Register() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Register</h1>
+const HalamanRegister = () => {
+  return <TampilanRegister />;
+};
 
-        <form className={styles.form}>
-          <input type="text" placeholder="Nama Lengkap" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Daftar</button>
-        </form>
-      </div>
-    </div>
-  );
-}
+export default HalamanRegister;
