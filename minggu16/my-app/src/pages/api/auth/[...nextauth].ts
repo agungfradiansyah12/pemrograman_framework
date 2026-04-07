@@ -1,7 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
+import { signIn } from "@/utils/db/servicefirebase"; // Pastikan path ini benar sesuai struktur proyek Anda
 import bcrypt from "bcrypt";
+import Credentials from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -50,12 +51,24 @@ export const authOptions: NextAuthOptions = {
     },
 
     async session({ session, token }: any) {
-      if (token?.email) {
+      // if (token?.email) {
+      //   session.user.email = token.email;
+      // }
+      // if (token?.fullname) {
+      //   session.user.fullname = token.fullname;
+      // }
+      // return session;
+      if (token.email) {
         session.user.email = token.email;
       }
-      if (token?.fullname) {
+      if (token.fullname) {
         session.user.fullname = token.fullname;
       }
+      if (token.role) {
+        session.user.role = token.role;
+      }
+
+      console.log("Session callback - session:", session);
       return session;
     },
   },
