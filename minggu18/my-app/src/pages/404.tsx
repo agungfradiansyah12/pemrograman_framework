@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "@/styles/404.module.scss";
+import Image from "next/image";
 
-export default function Custom404() {
+const Customer404 = () => {
   return (
     <>
       <Head>
@@ -11,7 +12,9 @@ export default function Custom404() {
       </Head>
 
       <div className={styles.container}>
-        <img src="/page-not-found.png" alt="404" className={styles.image} />
+        {/* <img src="/page-not-found.png" alt="404" className={styles.image} /> */}
+
+        <Image src="/page-not-found.png" alt="404" width={400} height={200} className={styles.image} />
 
         <h1 className={styles.title}>404 - Halaman Tidak Ditemukan</h1>
         <p>Maaf, halaman yang Anda cari tidak tersedia.</p>
@@ -22,4 +25,7 @@ export default function Custom404() {
       </div>
     </>
   );
-}
+};
+
+export default Customer404;
+
