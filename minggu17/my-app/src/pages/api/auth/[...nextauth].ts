@@ -4,6 +4,7 @@ import { signIn } from "@/utils/db/servicefirebase"; // Pastikan path ini benar 
 import bcrypt from "bcrypt";
 import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import { signInWithGoogle } from "@/utils/db/servicefirebase"; // Pastikan path ini benar sesuai struktur proyek Anda
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -61,11 +62,16 @@ export const authOptions: NextAuthOptions = {
           image: user.image,
           type: account.provider,
         };
-        // console.log("Google login data:", {data});
-        token.fullname = data.fullname;
-        token.email = data.email;
-        token.image = data.image;
-        token.type = data.type;
+
+        await signInWithGoogle(data, (result: any) => {
+          if (result.status) {
+            // console.log("Google login data:", {data});
+            token.fullname = result.data.fullname;
+            token.email = result.data.email;
+            token.image = result.data.image;
+            token.type = result.data.type;
+          }
+        });
       }
       return token;
     },
