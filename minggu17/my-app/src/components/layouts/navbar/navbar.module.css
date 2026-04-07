@@ -109,5 +109,9 @@
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  -o-trans .navbar_user_image {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  form: scale(1.1);
 }
