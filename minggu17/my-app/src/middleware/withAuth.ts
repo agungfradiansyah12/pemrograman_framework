@@ -22,6 +22,9 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
       if (token.role !== "admin" && hanyaAdmin.includes(pathname)) {
         return NextResponse.redirect(new URL("/", req.url));
       }
+      if (token.role !== "editor" && hanyaEditor.includes(pathname)) {
+        return NextResponse.redirect(new URL("/", req.url));
+      }
     }
 
     return middleware(req, next);
