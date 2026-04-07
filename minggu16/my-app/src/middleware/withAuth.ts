@@ -12,8 +12,9 @@ export default function withAuth(middleware: NextMiddleware, requireAuth: string
       });
 
       if (!token) {
-        const loginUrl = new URL("/auth/login", req.url);
-        return NextResponse.redirect(loginUrl);
+        const Url = new URL("/auth/login", req.url);
+        Url.searchParams.set("callbackUrl", encodeURI(req.url));
+        return NextResponse.redirect(Url);
       }
     }
 
