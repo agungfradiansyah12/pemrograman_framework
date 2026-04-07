@@ -85,41 +85,43 @@ const TampilanLogin = () => {
   };
 
   return (
-    <div className={styles.login}>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <>
+      <div className={styles.login}>
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <h1 className={styles.login_title}>Halaman Login</h1>
+        <h1 className={styles.login_title}>Halaman Login</h1>
 
-      <form className={styles.login_form} onSubmit={handleSubmit}>
-        {/* Email */}
-        <div className={styles.login_form_item}>
-          <label htmlFor="email" className={styles.login_form_item_label}>
-            Email
-          </label>
-          <input type="email" id="email" name="email" placeholder="Email" className={styles.login_form_item_input} />
-        </div>
+        <form className={styles.login_form} onSubmit={handleSubmit}>
+          {/* Email */}
+          <div className={styles.login_form_item}>
+            <label htmlFor="email" className={styles.login_form_item_label}>
+              Email
+            </label>
+            <input type="email" id="email" name="email" placeholder="Email" className={styles.login_form_item_input} />
+          </div>
 
-        {/* Password */}
-        <div className={styles.login_form_item}>
-          <label htmlFor="password" className={styles.login_form_item_label}>
-            Password
-          </label>
-          <input type="password" id="password" name="password" placeholder="Password" className={styles.login_form_item_input} />
-        </div>
+          {/* Password */}
+          <div className={styles.login_form_item}>
+            <label htmlFor="password" className={styles.login_form_item_label}>
+              Password
+            </label>
+            <input type="password" id="password" name="password" placeholder="Password" className={styles.login_form_item_input} />
+          </div>
 
-        {/* Button */}
-        <button type="submit" className={styles.login_form_button} disabled={isLoading}>
-          {isLoading ? "Loading..." : "Login"}
-        </button>
+          {/* Button */}
+          <button type="submit" className={styles.login_form_button} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Login"}
+          </button>
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        <p className={styles.login_text}>
-          tidak punya akun? <Link href="/auth/register">Ke Halaman Register</Link>
-        </p>
-      </form>
-    </div>
+          <p className={styles.login_text}>
+            tidak punya akun? <Link href="/auth/register">Ke Halaman Register</Link>
+          </p>
+        </form>
+      </div>
+    </>
   );
 };
 
