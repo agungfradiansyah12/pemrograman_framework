@@ -116,6 +116,10 @@ const TampilanLogin = () => {
           <br />
           <br />
 
+          <button onClick={() => signIn("google", { callbackUrl, redirect: false })} className={styles.login_form_item_button} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Sign in with Google"}
+          </button>
+
           <p className={styles.login_text}>
             tidak punya akun? <Link href="/auth/register">Ke Halaman Register</Link>
           </p>

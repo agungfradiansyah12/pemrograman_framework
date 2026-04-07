@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import styles from "./navbar.module.css";
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -10,14 +9,18 @@ const Navbar = () => {
       <div className={styles.navbar_brand}>MyApp</div>
 
       <div className={styles.navbar_right}>
-        {session && <span className={styles.navbar_user}>{session.user?.name}</span>}
+        {session && (
+          <div className={styles.navbar_user}>
+            <span>Welcome, {session.user?.name}</span>
+
+            {session.user?.image && <img src={session.user.image} alt={session.user.name || "User"} className={styles.navbar_user_image} />}
+          </div>
+        )}
 
         {session ? (
-          <>
-            <button className={`${styles.navbar_button} ${styles["navbar_button-danger"]}`} onClick={() => signOut()}>
-              Sign Out
-            </button>
-          </>
+          <button className={`${styles.navbar_button} ${styles["navbar_button-danger"]}`} onClick={() => signOut()}>
+            Sign Out
+          </button>
         ) : (
           <button className={`${styles.navbar_button} ${styles["navbar_button-primary"]}`} onClick={() => signIn()}>
             Sign In
@@ -27,4 +30,5 @@ const Navbar = () => {
     </div>
   );
 };
+
 export default Navbar;
