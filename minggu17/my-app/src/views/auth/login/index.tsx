@@ -99,7 +99,6 @@ const TampilanLogin = () => {
             </label>
             <input type="email" id="email" name="email" placeholder="Email" className={styles.login_form_item_input} />
           </div>
-
           {/* Password */}
           <div className={styles.login_form_item}>
             <label htmlFor="password" className={styles.login_form_item_label}>
@@ -107,19 +106,22 @@ const TampilanLogin = () => {
             </label>
             <input type="password" id="password" name="password" placeholder="Password" className={styles.login_form_item_input} />
           </div>
-
           {/* Button */}
           <button type="submit" className={styles.login_form_button} disabled={isLoading}>
             {isLoading ? "Loading..." : "Login"}
           </button>
-
           <br />
           <br />
-
-          <button onClick={() => signIn("google", { callbackUrl, redirect: false })} className={styles.login_form_item_button} disabled={isLoading}>
+          <button onClick={() => signIn("google", { callbackUrl, redirect: false })} className={styles.login_form_button} disabled={isLoading}>
             {isLoading ? "Loading..." : "Sign in with Google"}
           </button>
-
+          <br />
+          <br />
+          <button onClick={() => signIn("github", { callbackUrl, redirect: false })} className={styles.login_form_button} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Sign in with Github"}
+          </button>
+          <br />
+          <br />
           <p className={styles.login_text}>
             tidak punya akun? <Link href="/auth/register">Ke Halaman Register</Link>
           </p>
