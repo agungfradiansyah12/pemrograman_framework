@@ -1,31 +1,27 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`AboutPage renders the about page correctly 1`] = `
+exports[`About Page renders the about page correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <main
-        style="min-height: 100vh; padding: 20px;"
-      >
-        <div>
-          <h1>
-            Ini Halaman About
-          </h1>
-        </div>
-      </main>
+      <div>
+        <h1
+          data-testid="title"
+        >
+          About Page
+        </h1>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <main
-      style="min-height: 100vh; padding: 20px;"
-    >
-      <div>
-        <h1>
-          Ini Halaman About
-        </h1>
-      </div>
-    </main>
+    <div>
+      <h1
+        data-testid="title"
+      >
+        About Page
+      </h1>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
