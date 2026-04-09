@@ -2,7 +2,7 @@ const HalamanAdmin = () => {
   return (
     <div>
       <div className="admin">
-        <h1>Halaman Admin</h1>
+        <h1 data-testid="admin-title">Halaman Admin</h1>
         <p>
           Selamat datang dihalaman admin!
           <br />
