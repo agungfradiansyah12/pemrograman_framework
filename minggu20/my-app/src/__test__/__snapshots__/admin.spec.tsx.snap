@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Admin Page renders admin page correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="admin"
+    >
+      <h1
+        data-testid="admin-title"
+      >
+        Halaman Admin
+      </h1>
+      <p>
+        Selamat datang dihalaman admin!
+        <br />
+        Di sini Anda dapat mengelola produk, melihat pesanan, dan melakukan tugas administratif lainnya.
+        <br />
+        Pastikan untuk menjaga keamanan informasi dan hanya memberikan akses kepada pengguna yang berwenang.
+      </p>
+    </div>
+  </div>
+</div>
+`;
