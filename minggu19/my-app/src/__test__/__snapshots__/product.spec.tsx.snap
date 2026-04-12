@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Product Page renders product page correctly 1`] = `
-<div>
+<DocumentFragment>
   <div>
     <div
       class="produk"
     >
       <h1
         class="produk_title"
+        data-testid="title"
       >
         Daftar Produk
       </h1>
@@ -33,5 +34,5 @@ exports[`Product Page renders product page correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

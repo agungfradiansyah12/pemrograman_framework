@@ -23,7 +23,12 @@ describe("Product Page", () => {
   it("renders product page correctly", () => {
     const { container } = render(<TampilanProduk />);
 
+    // getByTestId + toBe
+    expect(screen.getByTestId("title").textContent).toBe("Product Page");
+
     // expect(screen.getByTestId("title").textContent).toBe("Product Page");
+
+    // snapshot
     expect(container).toMatchSnapshot();
   });
 });
